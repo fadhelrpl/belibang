@@ -14,17 +14,18 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('password');
             $table->string('avatar');
             $table->string('occupation');
             $table->string('bank_name');
             $table->string('bank_account');
-            $table->integer('bank_account_number');
+            $table->unsignedBigInteger('bank_account_number');
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-        }); 
+        });
     }
 
     /**
